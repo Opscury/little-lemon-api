@@ -1,0 +1,7 @@
+:root { color-scheme: dark; font-family: system-ui, sans-serif; }
+body { margin: 0; background: #172d26; color: #fff8e6; }
+main { max-width: 46rem; margin: 12vh auto; padding: 2.5rem; }
+.eyebrow { color: #f4ce14; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); margin: .2rem 0 1rem; }
+section { background: #24443a; border-radius: .75rem; margin-top: 2rem; padding: 1.5rem; }
+code { display: block; padding: .35rem 0; color: #f4ce14; }

@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Little Lemon | Bookings API</title>
+    <link rel="stylesheet" href="{% static 'restaurant/site.css' %}">
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Little Lemon</p>
+      <h1>Restaurant bookings API</h1>
+      <p>Register for an account, then use your token to manage bookings.</p>
+      <section>
+        <h2>Endpoints</h2>
+        <code>POST /api/registration/</code>
+        <code>GET, POST /api/bookings/</code>
+        <code>GET, PUT, DELETE /api/bookings/&lt;id&gt;/</code>
+      </section>
+    </main>
+  </body>
+</html>
