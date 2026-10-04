@@ -1,13 +1,19 @@
-from rest_framework import generics, permissions, status
+from rest_framework import permissions, status, viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.views.generic import TemplateView
-from .models import Booking
-from .serializers import BookingSerializer, RegistrationSerializer
+from .models import Booking, Menu
+from .serializers import BookingSerializer, MenuSerializer, RegistrationSerializer
 
 
-class BookingListCreateView(generics.ListCreateAPIView):
+class MenuViewSet(viewsets.ModelViewSet):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class BookingViewSet(viewsets.ModelViewSet):
     serializer_class = BookingSerializer
 
     def get_queryset(self):
@@ -15,13 +21,6 @@ class BookingListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
-
-
-class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = BookingSerializer
-
-    def get_queryset(self):
-        return Booking.objects.filter(created_by=self.request.user)
 
 
 class RegistrationView(APIView):
